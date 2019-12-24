@@ -3,6 +3,7 @@ package mygame;
 import java.util.ArrayList;
 
 public class Player {
+
 	int collectedGold = 0;
 	int totalGold;
 	int movesNum = 0;
@@ -15,6 +16,7 @@ public class Player {
 		this.totalGold = totalGold;
 		this.weaponCharges = weaponCharges;
 	}
+
 	public int getCollectedGold() {
 		return collectedGold;
 	}
@@ -27,13 +29,10 @@ public class Player {
 	public Cell getCell() {
 		return myCell;
 	}
-	/*
-	???????????? ????????:
-	0 - ??? ?? ??????
-	1 - ??? ??????
-	2 - ??? ?????? ? ????????? ??????? ?????????? ????
-	*/
+
+
 	public int moveTo(Cell c) {
+
 		if (!c.isHole() && !c.isRobot()) {
 			int result = 1;
 			movesNum++;
@@ -50,16 +49,22 @@ public class Player {
 		}
 		else return 0;
 	}
+
 	public int move(String position) {
+
 		if (position.equals("up") || position.equals("w"))
 			return moveTo(myCell.getNearbyCell("up"));
-		else if (position.equals("down") || position.equals("s"))
+		else
+			if (position.equals("down") || position.equals("s"))
 			return moveTo(myCell.getNearbyCell("down"));
-		else if (position.equals("left") || position.equals("a"))
+		else
+			if (position.equals("left") || position.equals("a"))
 			return moveTo(myCell.getNearbyCell("left"));
-		else if (position.equals("right") || position.equals("d"))
+		else
+			if (position.equals("right") || position.equals("d"))
 			return moveTo(myCell.getNearbyCell("right"));
-		else if (position.equals("x"))
+		else
+			if (position.equals("x"))
 			return useWeapon();
 		else return 0;
 		

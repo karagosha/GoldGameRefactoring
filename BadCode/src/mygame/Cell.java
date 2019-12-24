@@ -26,29 +26,15 @@ public class Cell {
 	public String getValue() {
 		return value;
 	}
-	
-	public boolean haveEmptyNearbyCell() {
-		ArrayList<Cell> emptyCells;
-		emptyCells = getNearbyCellsWithValue(new String[]{"empty"});
-		return !emptyCells.isEmpty();
-	}
+	// Не используется, может нужен для следующего билда.
+//	public boolean haveEmptyNearbyCell() {
+//		ArrayList<Cell> emptyCells;
+//		emptyCells = getNearbyCellsWithValue(new String[]{"empty"});
+//		return !emptyCells.isEmpty();
+//	}
 	
 	public void setNearbyCell(int index, Cell c) {
 		nearbyCells[index] = c;
-	}
-	public void setNearbyCell(String position, Cell c) {
-		if (position.equals("leftUp")) nearbyCells[0] = c;
-		else if (position.equals("up")) nearbyCells[1] = c;
-		else if (position.equals("rightUp")) nearbyCells[2] = c;
-		else if (position.equals("right")) nearbyCells[3] = c;
-		else if (position.equals("rightDown")) nearbyCells[4] = c;
-		else if (position.equals("down")) nearbyCells[5] = c;
-		else if (position.equals("leftDown")) nearbyCells[6] = c;
-		else if (position.equals("left")) nearbyCells[7] = c;
-	}
-	
-	public Cell[] getNearbyCells() {
-		return nearbyCells;
 	}
 
 	public ArrayList<Cell> getNearbyCellsWithValue(String[] values) {
@@ -107,10 +93,7 @@ public class Cell {
 	public void setReachable() {
 		reachable = true;
 	}
-	public void unsetReachable() {
-		reachable = false;
-	}
-	
+
 	public boolean isEmpty() {
 		if (value.equals("empty")) return true;
 		else return false;
@@ -134,7 +117,6 @@ public class Cell {
 	}	
 	public void setGold() {
 		value = "gold";
-		//obj = g;
 	}
 	
 	public boolean isRobot() {
@@ -153,15 +135,6 @@ public class Cell {
 	public void setPlayer(Player p) {
 		value = "player";
 		obj = p;
-	}
-	
-	public void print() {
-		/*if (reachable) System.out.print("+");
-		else*/ if (value.equals("empty")) System.out.print(".");
-		else if (value.equals("hole")) System.out.print("H");
-		else if (value.equals("gold")) System.out.print("G");
-		else if (value.equals("robot")) System.out.print("R");
-		else if (value.equals("player")) System.out.print("P");
 	}
 
 }
